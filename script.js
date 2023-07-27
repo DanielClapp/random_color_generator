@@ -1,11 +1,15 @@
 const button = document.querySelector('#color');
+const h1 = document.querySelector('h1');
 
-function changeColor() {
+button.addEventListener('click', function () {
+  const newColor = randomColor();
+  document.body.style.backgroundColor = newColor;
+  h1.innerText = newColor;
+});
+
+const randomColor = () => {
   const r = Math.floor(Math.random() * 255);
   const g = Math.floor(Math.random() * 255);
   const b = Math.floor(Math.random() * 255);
-  const newColor = `rgb(${r}, ${g}, ${b})`;
-  document.body.style.backgroundColor = newColor;
-}
-
-button.addEventListener('click', changeColor);
+  return `rgb(${r}, ${g}, ${b})`;
+};
